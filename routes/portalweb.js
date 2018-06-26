@@ -1,6 +1,6 @@
 'use strict';
 var https = require( 'https' );
-const notificationsController = require('../server/controllers').notifications;
+//const notificationsController = require('../server/controllers').notifications;
 var rp = require('request-promise');
 var activityUtils = require('./activityUtils');
 
