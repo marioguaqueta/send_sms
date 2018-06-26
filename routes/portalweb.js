@@ -40,6 +40,12 @@ exports.publish = function( req, res ) {
 function sendSMSNotification(notification,res) {
     var token = 'Basic YW1hY2xlb2Q6YmlkaXJlY2Npb25hbDIwMTg=';
     var endpoint = 'https://api.infobip.com/sms/1/text/single';
+    console.log('___________________________________________________________________________');
+    console.log("Nombres: " + notification['name']);
+    console.log("Id " + notification['id']);
+    console.log("Message " + notification['message']);
+
+
 
     var options = {
         method: 'POST',
@@ -94,10 +100,11 @@ exports.execute = function( req, res ) {
         console.log("ARGUMENTS: " + aArgs[i]);
         for (var key in aArgs[i]) {
             notification[key] = aArgs[i][key];
-            console.log("KEYS " + key);
+            console.log("KEYS " + key + " VALUE " + notification[key]);
+
         }
     }
-    console.log(util.format(notification['message'],notification['name'], notification['id']));
+    console.log("MESSAGE: " + util.format(notification['message'],notification['name'], notification['id']));
     sendSMSNotification(notification,res);
     res.send( 201, {"exitoso":true});
 };
