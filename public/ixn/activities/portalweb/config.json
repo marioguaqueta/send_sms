@@ -15,7 +15,10 @@
   "arguments": {
     "execute": {
       "inArguments":[
-        
+        { "firstname": "{{Contact.Default.FirstName}}"},
+        { "lastname": "{{Contact.Default.LastName}}"},
+        { "phone": "{{Contact.Default.Phone}}"},
+        { "id": "{{Contact.Attribute.CustomActivity.Id}}"}
       ],
       "outArguments": [
         { "exitoso":"boolean" }
