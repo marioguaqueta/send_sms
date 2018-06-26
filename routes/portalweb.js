@@ -52,7 +52,7 @@ function sendSMSNotification(notification,res) {
         body: {
             "from":"Info-BCP2",
             "to": notification['phone'],
-            "text": util.format(notification['text'],notification['name'], notification['id'])
+            "text": "Hola " + notification['name'] + ", detectamos un fraude"
         },
         headers: {
             "authorization": token
@@ -104,6 +104,6 @@ exports.execute = function( req, res ) {
     }
     // console.log("MESSAGE: " + util.format(notification['text'],notification['name'], notification['id']));
 
-    //sendSMSNotification(notification,res);
+    sendSMSNotification(notification,res);
     res.send( 201, {"exitoso":true});
 };
