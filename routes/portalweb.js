@@ -97,11 +97,14 @@ exports.execute = function( req, res ) {
     var notification = {};
 
     for (var i=0; i<aArgs.length; i++) {
+
         for (var key in aArgs[i]) {
             notification[key] = aArgs[i][key];
+            console.log("KEY: " + key);
+            console.log("Argument Value: " + aArgs[i][key]);
         }
     }
     console.log("MESSAGE: " + util.format(notification['text'],notification['name'], notification['id']));
-    sendSMSNotification(notification,res);
+    //sendSMSNotification(notification,res);
     res.send( 201, {"exitoso":true});
 };
