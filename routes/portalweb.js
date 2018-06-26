@@ -52,7 +52,7 @@ function sendSMSNotification(notification,res) {
         body: {
             "from":"Info-BCP2",
             "to": notification['phone'],
-            "text": "Hola " + notification['fullname'] + ", detectamos un fraude"
+            "text": "Hola " + notification['fullname'] + ", detectamos un fraude. https://pub.s7.exacttarget.com/gek4mc4cmuh?ID="+notification['id']
         },
         headers: {
             "authorization": token
