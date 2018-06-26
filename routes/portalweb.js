@@ -1,8 +1,7 @@
 'use strict';
 var https = require( 'https' );
-var BitlyClient  = require('bitly');
-var bitly = new BitlyClient('6220be89110d3b354055226f2448b3bb98d79a44', {});
-//const notificationsController = require('../server/controllers').notifications;
+const BitlyClient = require('bitly');
+const bitly = new BitlyClient('6220be89110d3b354055226f2448b3bb98d79a44');
 var rp = require('request-promise');
 var util = require('util');
 var activityUtils = require('./activityUtils');
@@ -108,13 +107,16 @@ exports.execute = function( req, res ) {
     // console.log("MESSAGE: " + util.format(notification['text'],notification['name'], notification['id']));
 
     
-    try {
-        result = await bitly.shorten("https://pub.s7.exacttarget.com/gek4mc4cmuh?ID=");
-        console.log("URI RESULT: " + result);
-    } catch(e) {
-        throw e;
-    }
-
+    
+ 
+bitly
+  .shorten('https://pub.s7.exacttarget.com/gek4mc4cmuh?ID=' + notification['id'])
+  .then(function(result) {
+    console.log(result);
+  })
+  .catch(function(error) {
+    console.error(error);
+  });
     //sendSMSNotification(notification,res);
     res.send( 201, {"exitoso":true});
 };
