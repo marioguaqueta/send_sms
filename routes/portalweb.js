@@ -2,6 +2,7 @@
 var https = require( 'https' );
 //const notificationsController = require('../server/controllers').notifications;
 var rp = require('request-promise');
+var util = require('util');
 var activityUtils = require('./activityUtils');
 
 
@@ -36,7 +37,7 @@ exports.publish = function( req, res ) {
 };
 
 
-function sendSMSNotification(req,res) {
+function sendSMSNotification(notification,res) {
     var token = 'Basic YW1hY2xlb2Q6YmlkaXJlY2Npb25hbDIwMTg=';
     var endpoint = 'https://api.infobip.com/sms/1/text/single';
 
@@ -44,9 +45,9 @@ function sendSMSNotification(req,res) {
         method: 'POST',
         uri: endpoint,
         body: {
-            "from":"InfoSMSEdwinRosado",
-            "to":"51981017969",
-            "text":"hola2 https://bit.ly/2si6zTt"
+            "from":"Info-BCP",
+            "to":notification['phone'],
+            "text":util.format(notification['message'],notification['name'], notification['id'])
         },
         headers: {
             "authorization": token
@@ -57,12 +58,8 @@ function sendSMSNotification(req,res) {
     rp(options)
         .then(function (body) {
             console.log('BODY ' + body)
-            // if (body.access_token) {
-            //     return body.access_token;
-            // }
-            // else {
-            //     res.send(500, body);
-            // }
+            return body;
+            
         })
         .catch(function (err) {
             console.error(err);
@@ -90,16 +87,17 @@ exports.execute = function( req, res ) {
     // activityUtils.logData( req );
     // console.log(req.body);
 
-    // var aArgs = req.body.inArguments;
-    // var notification = {};
-    // for (var i=0; i<aArgs.length(); i++) {
-    //     console.log('');
-    //     for (var key in aArgs[i]) {
-    //         notification[key] = aArgs[i][key];
-    //     }
-    // }
+    var aArgs = req.body.inArguments;
+    var notification = {};
 
-    console.log('Send SMS to Diego')
-    sendSMSNotification(req,res);
+    for (var i=0; i<aArgs.length; i++) {
+        console.log(aArgs[i]);
+        for (var key in aArgs[i]) {
+            notification[key] = aArgs[i][key];
+            console.log(key);
+        }
+    }
+    console.log(util.format(notification['message'],notification['name'], notification['id']));
+    //sendSMSNotification(notification,res);
     res.send( 201, {"exitoso":true});
 };
