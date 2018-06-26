@@ -43,7 +43,7 @@ function sendSMSNotification(notification,res) {
     console.log('___________________________________________________________________________');
     console.log("Nombres: " + notification['name']);
     console.log("Id " + notification['id']);
-    console.log("Message " + notification['text']);
+    console.log("Message " +  util.format(notification['text'],notification['name'], notification['id']));
 
 
 

@@ -18,7 +18,7 @@
         { "id": "{{Contact.Attribute.J1_Alerta1.Id}}"},
         { "fullname": "{{Contact.Attribute.J1_Alerta1.Nombre}}"},
         { "phone": "{{Contact.Attribute.J1_Alerta1.Telefono}}"},
-        { "text": "{{Contact.Attribute.J1_Alerta1.Mensaje}}"}
+        { "text": "{{Contact.Attribute.J1_Alerta1.TextoMensaje}}"}
       ],
       "outArguments": [
         { "exitoso":"boolean" }
