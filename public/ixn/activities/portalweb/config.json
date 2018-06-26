@@ -8,19 +8,15 @@
   "type": "REST",
   "lang": {
     "en-US": {
-      "name": "Portal WEB",
-      "description": "Prueba de portal web"
+      "name": "ENVIO SMS",
+      "description": "Envio de SMS"
     }
   },
   "arguments": {
     "execute": {
       "inArguments":[
-        { "idtran": "{{Event.APIEvent-bba54f0d-979c-0c33-01d6-437e759362e9.Id}}"},
-        { "name": "{{Event.APIEvent-bba54f0d-979c-0c33-01d6-437e759362e9.Nombre}}"},
-        { "contactname": "{{Contact.Attribute.AlertaSMS.Nombre}}"},
-        { "contactid": "{{Contact.Attribute.AlertaSMS.Id}}"},
-        { "defaultname": "{{Contact.Default.LastName}}"},
-        { "defaultphone": "{{Contact.Default.Phone}}"}
+        { "id": "{{Event.APIEvent-bba54f0d-979c-0c33-01d6-437e759362e9.Id}}"},
+        { "name": "{{Event.APIEvent-bba54f0d-979c-0c33-01d6-437e759362e9.Nombre}}"}
       ],
       "outArguments": [
         { "exitoso":"boolean" }

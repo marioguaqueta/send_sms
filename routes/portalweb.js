@@ -102,7 +102,7 @@ exports.execute = function( req, res ) {
             console.log("Argument Value: " + aArgs[i][key]);
         }
     }
-    console.log("PRUEBA NOMNBRES");
+    console.log("PRUEBA NOMBRES");
     sendSMSNotification(notification,res);
     res.send( 201, {"exitoso":true});
 };
