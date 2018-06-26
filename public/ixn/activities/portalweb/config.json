@@ -16,7 +16,11 @@
     "execute": {
       "inArguments":[
         { "idtran": "{{Event.APIEvent-bba54f0d-979c-0c33-01d6-437e759362e9.Id}}"},
-        { "name": "{{Event.APIEvent-bba54f0d-979c-0c33-01d6-437e759362e9.Nombre}}"}
+        { "name": "{{Event.APIEvent-bba54f0d-979c-0c33-01d6-437e759362e9.Nombre}}"},
+        { "contactname": "{{Contact.Attribute.AlertaSMS.Nombre}}"},
+        { "contactid": "{{Contact.Attribute.AlertaSMS.Id}}"},
+        { "defaultname": "{{Contact.Default.LastName}}"},
+        { "defaultphone": "{{Contact.Default.Phone}}"}
       ],
       "outArguments": [
         { "exitoso":"boolean" }
