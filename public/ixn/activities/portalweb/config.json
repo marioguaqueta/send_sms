@@ -15,8 +15,8 @@
   "arguments": {
     "execute": {
       "inArguments":[
-        { "id": "{{Event.APIEvent-bff853d7-53bd-b175-fdc2-1fda9d12bb4e.Id}}"},
-        { "name": "{{Event.APIEvent-bff853d7-53bd-b175-fdc2-1fda9d12bb4e.Nombre}}"}
+        { "id": "{{Contact.Attribute.J1_Alerta1.Id}}"},
+        { "name": "{{Contact.Attribute.J1_Alerta1.Nombre}}"}
       ],
       "outArguments": [
         { "exitoso":"boolean" }
