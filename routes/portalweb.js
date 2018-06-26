@@ -40,9 +40,9 @@ function sendSMSNotification(notification,res) {
     var token = 'Basic YW1hY2xlb2Q6YmlkaXJlY2Npb25hbDIwMTg=';
     var endpoint = 'https://api.infobip.com/sms/1/text/single';
     console.log('___________________________________________________________________________');
-    console.log("Nombres: " + notification['name']);
+    console.log("Nombres: " + notification['fullname']);
     console.log("Id " + notification['id']);
-    console.log("Message " +  util.format(notification['text'],notification['name'], notification['id']));
+    console.log("Message " +  util.format(notification['text'],notification['fullname'], notification['id']));
 
 
 
@@ -52,7 +52,7 @@ function sendSMSNotification(notification,res) {
         body: {
             "from":"Info-BCP2",
             "to": notification['phone'],
-            "text": "Hola " + notification['name'] + ", detectamos un fraude"
+            "text": "Hola " + notification['fullname'] + ", detectamos un fraude"
         },
         headers: {
             "authorization": token
@@ -102,7 +102,6 @@ exports.execute = function( req, res ) {
             console.log("Argument Value: " + aArgs[i][key]);
         }
     }
-    // console.log("MESSAGE: " + util.format(notification['text'],notification['name'], notification['id']));
 
     sendSMSNotification(notification,res);
     res.send( 201, {"exitoso":true});
