@@ -1,5 +1,7 @@
 'use strict';
 var https = require( 'https' );
+const { BitlyClient } = require('bitly');
+const bitly = new BitlyClient('6220be89110d3b354055226f2448b3bb98d79a44', {});
 //const notificationsController = require('../server/controllers').notifications;
 var rp = require('request-promise');
 var util = require('util');
@@ -97,14 +99,22 @@ exports.execute = function( req, res ) {
     var notification = {};
 
     for (var i=0; i<aArgs.length; i++) {
-
         for (var key in aArgs[i]) {
             notification[key] = aArgs[i][key];
             console.log("KEY: " + key);
             console.log("Argument Value: " + aArgs[i][key]);
         }
     }
-    console.log("MESSAGE: " + util.format(notification['text'],notification['name'], notification['id']));
+    // console.log("MESSAGE: " + util.format(notification['text'],notification['name'], notification['id']));
+
+    
+    try {
+        result = await bitly.shorten("https://pub.s7.exacttarget.com/gek4mc4cmuh?ID=");
+        console.log("URI RESULT: " + result);
+    } catch(e) {
+        throw e;
+    }
+
     //sendSMSNotification(notification,res);
     res.send( 201, {"exitoso":true});
 };

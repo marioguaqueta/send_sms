@@ -12,6 +12,7 @@
     "Drew Simmons <drew.simmons@salesforce.com>"
   ],
   "dependencies": {
+    "bitly": "^6.0.6",
     "express": "~3.5.0",
     "fuel": "~0.4.1",
     "jwt-simple": "~0.1.0",
