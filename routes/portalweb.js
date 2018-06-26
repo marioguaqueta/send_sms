@@ -45,9 +45,9 @@ function sendSMSNotification(notification,res) {
         method: 'POST',
         uri: endpoint,
         body: {
-            "from":"Info-BCP",
-            "to":notification['phone'],
-            "text":util.format(notification['message'],notification['name'], notification['id'])
+            "from":"Info-BCP2",
+            "to": notification['phone'],
+            "text": util.format(notification['message'],notification['name'], notification['id'])
         },
         headers: {
             "authorization": token
@@ -57,8 +57,8 @@ function sendSMSNotification(notification,res) {
     console.log("Request: " + options.uri);
     rp(options)
         .then(function (body) {
-            console.log('BODY ' + body)
-            return body;
+            console.log('BODY ' + body);
+            
             
         })
         .catch(function (err) {
@@ -91,13 +91,13 @@ exports.execute = function( req, res ) {
     var notification = {};
 
     for (var i=0; i<aArgs.length; i++) {
-        console.log(aArgs[i]);
+        console.log("ARGUMENTS: " + aArgs[i]);
         for (var key in aArgs[i]) {
             notification[key] = aArgs[i][key];
-            console.log(key);
+            console.log("KEYS " + key);
         }
     }
     console.log(util.format(notification['message'],notification['name'], notification['id']));
-    //sendSMSNotification(notification,res);
+    sendSMSNotification(notification,res);
     res.send( 201, {"exitoso":true});
 };

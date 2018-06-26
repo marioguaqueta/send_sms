@@ -51,7 +51,6 @@ app.use(express.cookieParser());
 app.use(express.cookieSession({secret: "DeskAPI-CookieSecret0980q8w0r8we09r8"}));
 
 // Configure Express
-// app.set('port', process.env.PORT || 3000);
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
