@@ -1,7 +1,7 @@
 'use strict';
 var https = require( 'https' );
-const { BitlyClient } = require('bitly');
-const bitly = new BitlyClient('6220be89110d3b354055226f2448b3bb98d79a44', {});
+var BitlyClient  = require('bitly');
+var bitly = new BitlyClient('6220be89110d3b354055226f2448b3bb98d79a44', {});
 //const notificationsController = require('../server/controllers').notifications;
 var rp = require('request-promise');
 var util = require('util');
