@@ -19,10 +19,10 @@ var app = express();
 
 
 var APIKeys = {
-    appId           : '87caba4b-58ba-4b11-9ffb-9c5ece0f38f3',
-    clientId        : 'fe9dm670tfvhltyrprgxtwgt',
-    clientSecret    : 'QTQ9RqC4FuIsQFfCgHDw0JaM',
-    appSignature    : 'E-oe6IANv4X9ttYtKdE3Q5Sa19Vbf1ifuC1FYYRhdzQ2hSDPoOkxVtlWUzU6MyPY7xGR0UrWeNTwLgIjae8AmBTA8rcSj3eNgQjvi8BncQsTRP7VuiwMKDn91Aj5TZQvDoXalFHHePS3za044mPUvxv7d8I6EHBoRRx-K0xClDkjYpEbHegAOjQLR-Ctb_Qr8q88Fjd7e7wDK957wZ0zBg8iS5q1Wkp5n373vXQBIshKEk46Ylj9sDhB-xqkBA2',
+    appId           : 'b2020213-adb9-4fec-ba26-64210f36e3b2',
+    clientId        : 'zx0p2tf19x11j67i8upg1lgn',
+    clientSecret    : 'zTdNJXrEpR8QA1VSQeX13Oad',
+    appSignature    : 'TWauRjQQdSpNpXlVHhwLiMaS3-k_kXtKJ8RO9NUE87kuWU2hHuxakzhEx9kUP_vGdOly0EaRC_oG-aUc0RBulOWHW9_pjaVLi7VjSnVcioCfzRmeWs6iBTfb0xiWc2dB4kYPQpgnZCeEx7fMhvGtIFAEoMiM3wonTdQHtn8EewKhA2LiyNxS7WlNB7mnddmlJKPu3TrOESudILd5dnChLqTDLtJkheeKUFMrsz2Rb5jDnKvO1rOth-8ZWtlvqg2',
     authUrl         : 'https://auth.exacttargetapis.com/v1/requestToken?legacy=1'
 };
 
@@ -52,7 +52,7 @@ app.use(express.cookieSession({secret: "DeskAPI-CookieSecret0980q8w0r8we09r8"}))
 
 // Configure Express
 // app.set('port', process.env.PORT || 3000);
-app.set('port', 80);
+app.set('port', process.env.PORT );
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 app.use(express.logger('dev'));
