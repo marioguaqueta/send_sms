@@ -15,13 +15,15 @@
   "arguments": {
     "execute": {
       "inArguments":[
-        { "idUser": "{{Contact.Attribute.Capacitacion-Clientes-Sergio.IdCliente}}"},
-        { "idCampana": "{{Contact.Attribute.Capacitacion-Clientes-Sergio.Nombre}}"}
+        { "id": "{{Contact.Attribute.J1_Alerta1.Id}}"},
+        { "name": "{{Contact.Attribute.J1_Alerta1.Nombre}}"},
+        { "phone": "{{Contact.Attribute.J1_Alerta1.Telefono}}"},
+        { "text": "{{Contact.Attribute.J1_Alerta1.Mensaje}}"}
       ],
       "outArguments": [
         { "exitoso":"boolean" }
       ],
-      "url": "https://marketing-cloud-ws-dev.herokuapp.com/ixn/activities/portalweb/execute/",
+      "url": "https://sms-bcp.herokuapp.com/ixn/activities/portalweb/execute/",
       "verb": "POST",
       "body": "",
       "header": "",
@@ -31,22 +33,22 @@
     }
   },
   "configurationArguments": {
-    "applicationExtensionKey": "ecad721b-9645-4d52-ba4e-03ad3a03051e",
+    "applicationExtensionKey": "4afcfa7e-b4b1-42ba-b97b-f6c2b4cc4d39",
     "defaults": { "priority": "4"},
     "save": {
-      "url": "https://marketing-cloud-ws-dev.herokuapp.com/ixn/activities/portalweb/save/",
+      "url": "https://sms-bcp.herokuapp.com/ixn/activities/portalweb/save/",
       "body": "",
       "verb": "POST",
       "useJwt": false
     },
     "publish": {
-      "url": "https://marketing-cloud-ws-dev.herokuapp.com/ixn/activities/portalweb/publish/",
+      "url": "https://sms-bcp.herokuapp.com/ixn/activities/portalweb/publish/",
       "verb": "POST",
       "body": "",
       "useJwt": false
     },
     "validate": {
-      "url": "https://marketing-cloud-ws-dev.herokuapp.com/ixn/activities/portalweb/validate/",
+      "url": "https://sms-bcp.herokuapp.com/ixn/activities/portalweb/validate/",
       "verb": "POST",
       "body": "",
       "useJwt": false
@@ -69,7 +71,7 @@
     }
   },
   "edit": {
-    "url": "https://marketing-cloud-ws-dev.herokuapp.com/ixn/activities/portalweb/",
+    "url": "https://sms-bcp.herokuapp.com/ixn/activities/portalweb/",
     "height": 400,
     "width": 500
   }
