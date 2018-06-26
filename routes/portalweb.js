@@ -42,7 +42,7 @@ function sendSMSNotification(notification,res) {
     console.log('___________________________________________________________________________');
     console.log("Nombres: " + notification['fullname']);
     console.log("Id " + notification['id']);
-    console.log("Message " +  util.format(notification['text'],notification['fullname'], notification['id']));
+    console.log("Message " +  "Hola " + notification['fullname'] + ", detectamos un fraude. https://pub.s7.exacttarget.com/gek4mc4cmuh?ID="+notification['id']);
 
 
 
