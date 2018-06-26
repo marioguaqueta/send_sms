@@ -63,7 +63,7 @@ function sendSMSNotification(notification,res) {
     console.log("Request: " + options.uri);
     rp(options)
         .then(function (body) {
-            console.log('BODY ' + body);
+            console.log('BODY ' + body.toString());
             
             
         })
