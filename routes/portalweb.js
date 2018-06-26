@@ -107,16 +107,13 @@ exports.execute = function( req, res ) {
     // console.log("MESSAGE: " + util.format(notification['text'],notification['name'], notification['id']));
 
     
-    
- 
-bitly
-  .shorten('https://pub.s7.exacttarget.com/gek4mc4cmuh?ID=' + notification['id'])
-  .then(function(result) {
-    console.log(result);
-  })
-  .catch(function(error) {
-    console.error(error);
-  });
+  //   bitly.shorten('https://pub.s7.exacttarget.com/gek4mc4cmuh?ID=' + notification['id'])
+  //   .then(function(result) {
+  //   console.log(result);
+  // })
+  // .catch(function(error) {
+  //   console.error(error);
+  // });
     //sendSMSNotification(notification,res);
     res.send( 201, {"exitoso":true});
 };
