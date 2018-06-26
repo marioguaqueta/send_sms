@@ -15,8 +15,8 @@
   "arguments": {
     "execute": {
       "inArguments":[
-        { "id": "{{Event.APIEvent-58fb1793-3b7e-954f-930e-196f6b34f74b.Id}}"},
-        { "name": "{{Event.APIEvent-58fb1793-3b7e-954f-930e-196f6b34f74b.Nombre}}"}
+        { "id": "{{Contact.Attribute.["J1_Fraude_Prueba_Concepto"].["Id"]}}"},
+        { "name": "{{Contact.Attribute.[Id]}}"}
       ],
       "outArguments": [
         { "exitoso":"boolean" }
