@@ -15,9 +15,9 @@
   "arguments": {
     "execute": {
       "inArguments":[
-        { "id": "{{Event.APIEvent-49213ceb-542a-0d34-515b-7c0082561217.J1_Alerta1.Id}}"},
-        { "fullname": "{{Event.APIEvent-49213ceb-542a-0d34-515b-7c0082561217.J1_Alerta1.Nombre}}"},
-        { "phone": "{{Event.APIEvent-49213ceb-542a-0d34-515b-7c0082561217.J1_Alerta1.Telefono}}"}
+        { "id": "{{Event.APIEvent-49213ceb-542a-0d34-515b-7c0082561217.\Id\}}"},
+        { "fullname": "{{Event.APIEvent-49213ceb-542a-0d34-515b-7c0082561217.\Nombre\}}"},
+        { "phone": "{{Event.APIEvent-49213ceb-542a-0d34-515b-7c0082561217.\Telefono\}}"}
       ],
       "outArguments": [
         { "exitoso":"boolean" }
