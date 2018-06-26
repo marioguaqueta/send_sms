@@ -43,7 +43,7 @@ function sendSMSNotification(notification,res) {
     console.log('___________________________________________________________________________');
     console.log("Nombres: " + notification['name']);
     console.log("Id " + notification['id']);
-    console.log("Message " + notification['message']);
+    console.log("Message " + notification['text']);
 
 
 
@@ -53,7 +53,7 @@ function sendSMSNotification(notification,res) {
         body: {
             "from":"Info-BCP2",
             "to": notification['phone'],
-            "text": util.format(notification['message'],notification['name'], notification['id'])
+            "text": util.format(notification['text'],notification['name'], notification['id'])
         },
         headers: {
             "authorization": token
@@ -94,20 +94,14 @@ exports.execute = function( req, res ) {
     // console.log(req.body);
 
     var aArgs = req.body.inArguments;
-    console.log(req.body);
-    console.log('___________________________________________________________________________');
-    console.log(req.body.inArguments);
     var notification = {};
 
     for (var i=0; i<aArgs.length; i++) {
-        console.log("ARGUMENTS: " + aArgs[i]);
         for (var key in aArgs[i]) {
             notification[key] = aArgs[i][key];
-            console.log("KEYS " + key + " VALUE " + notification[key]);
-
         }
     }
-    console.log("MESSAGE: " + util.format(notification['message'],notification['name'], notification['id']));
+    console.log("MESSAGE: " + util.format(notification['text'],notification['name'], notification['id']));
     sendSMSNotification(notification,res);
     res.send( 201, {"exitoso":true});
 };
