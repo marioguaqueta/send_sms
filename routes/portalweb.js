@@ -94,6 +94,9 @@ exports.execute = function( req, res ) {
     // console.log(req.body);
 
     var aArgs = req.body.inArguments;
+    console.log(req.body);
+    console.log('___________________________________________________________________________');
+    console.log(req.body.inArguments);
     var notification = {};
 
     for (var i=0; i<aArgs.length; i++) {
