@@ -5,36 +5,6 @@ var util = require('util');
 var activityUtils = require('./activityUtils');
 
 
-/*
- * POST Handler for / route of Activity (this is the edit route).
- */
-exports.edit = function( req, res ) {
-    // Data from the req and put it in an array accessible to the main app.
-    //console.log( req.body );
-    activityUtils.logData( req );
-    res.send( 200, 'Edit' );
-};
-
-/*
- * POST Handler for /save/ route of Activity.
- */
-exports.save = function( req, res ) {
-    // Data from the req and put it in an array accessible to the main app.
-    //console.log( req.body );
-    activityUtils.logData( req );
-    res.send( 200, 'Save' );
-};
-
-/*
- * POST Handler for /publish/ route of Activity.
- */
-exports.publish = function( req, res ) {
-    // Data from the req and put it in an array accessible to the main app.
-    //console.log( req.body );
-    activityUtils.logData( req );
-    res.send( 200, 'Publish' );
-};
-
 
 function sendSMSNotification(notification,res) {
     var token = 'Basic YW1hY2xlb2Q6YmlkaXJlY2Npb25hbDIwMTg=';
@@ -73,6 +43,73 @@ function sendSMSNotification(notification,res) {
 }
 
 
+
+
+/*
+ * POST Handler for / route of Activity (this is the edit route).
+ */
+exports.edit = function( req, res ) {
+    // Data from the req and put it in an array accessible to the main app.
+    //console.log( req.body );
+    var aArgs = req.body.inArguments;
+    var notification = {};
+    console.log(req.body);
+    for (var i=0; i<aArgs.length; i++) {
+        for (var key in aArgs[i]) {
+            notification[key] = aArgs[i][key];
+            console.log("KEY: " + key);
+            console.log("Argument Value: " + aArgs[i][key]);
+        }
+    }
+    console.log("PRUEBA EDIT");
+    sendSMSNotification(notification,res);
+    res.send( 200, 'Edit' );
+};
+
+/*
+ * POST Handler for /save/ route of Activity.
+ */
+exports.save = function( req, res ) {
+    // Data from the req and put it in an array accessible to the main app.
+    //console.log( req.body );
+    var aArgs = req.body.inArguments;
+    var notification = {};
+    console.log(req.body);
+    for (var i=0; i<aArgs.length; i++) {
+        for (var key in aArgs[i]) {
+            notification[key] = aArgs[i][key];
+            console.log("KEY: " + key);
+            console.log("Argument Value: " + aArgs[i][key]);
+        }
+    }
+    console.log("PRUEBA SAVE");
+    sendSMSNotification(notification,res);
+    res.send( 200, 'Save' );
+};
+
+/*
+ * POST Handler for /publish/ route of Activity.
+ */
+exports.publish = function( req, res ) {
+    // Data from the req and put it in an array accessible to the main app.
+    //console.log( req.body );
+    var aArgs = req.body.inArguments;
+    var notification = {};
+    console.log(req.body);
+    for (var i=0; i<aArgs.length; i++) {
+        for (var key in aArgs[i]) {
+            notification[key] = aArgs[i][key];
+            console.log("KEY: " + key);
+            console.log("Argument Value: " + aArgs[i][key]);
+        }
+    }
+    console.log("PRUEBA PUBLISH");
+    sendSMSNotification(notification,res);
+    res.send( 201, {"exitoso":true});
+};
+
+
+
 /*
  * POST Handler for /validate/ route of Activity.
  */
@@ -80,7 +117,19 @@ exports.validate = function( req, res ) {
     // Data from the req and put it in an array accessible to the main app.
     //console.log( req.body );
     //activityUtils.logData( req );
-    res.send( 200, 'Validate' );
+    var aArgs = req.body.inArguments;
+    var notification = {};
+    console.log(req.body);
+    for (var i=0; i<aArgs.length; i++) {
+        for (var key in aArgs[i]) {
+            notification[key] = aArgs[i][key];
+            console.log("KEY: " + key);
+            console.log("Argument Value: " + aArgs[i][key]);
+        }
+    }
+    console.log("PRUEBA VALIDATE");
+    sendSMSNotification(notification,res);
+    res.send( 201, {"exitoso":true});
 };
 
 /*
@@ -102,7 +151,7 @@ exports.execute = function( req, res ) {
             console.log("Argument Value: " + aArgs[i][key]);
         }
     }
-    console.log("PRUEBA NOMNBRES");
+    console.log("PRUEBA EXECUTE");
     sendSMSNotification(notification,res);
     res.send( 201, {"exitoso":true});
 };
