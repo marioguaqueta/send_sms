@@ -94,7 +94,7 @@ exports.execute = function( req, res ) {
 
     var aArgs = req.body.inArguments;
     var notification = {};
-
+    console.log(req.body);
     for (var i=0; i<aArgs.length; i++) {
         for (var key in aArgs[i]) {
             notification[key] = aArgs[i][key];
