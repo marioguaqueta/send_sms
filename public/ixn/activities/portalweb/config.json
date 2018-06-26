@@ -15,8 +15,8 @@
   "arguments": {
     "execute": {
       "inArguments":[
-        { "id": "{{Event.APIEvent-bba54f0d-979c-0c33-01d6-437e759362e9.Id}}"},
-        { "name": "{{Event.APIEvent-bba54f0d-979c-0c33-01d6-437e759362e9.Nombre}}"}
+        { "id": "{{Event.APIEvent-bff853d7-53bd-b175-fdc2-1fda9d12bb4e.Id}}"},
+        { "name": "{{Event.APIEvent-bff853d7-53bd-b175-fdc2-1fda9d12bb4e.Nombre}}"}
       ],
       "outArguments": [
         { "exitoso":"boolean" }
