@@ -33,7 +33,7 @@
     }
   },
   "configurationArguments": {
-    "applicationExtensionKey": "e4bc0109-a511-468b-8c85-104b285cfd94",
+    "applicationExtensionKey": "4afcfa7e-b4b1-42ba-b97b-f6c2b4cc4d39",
     "defaults": { "priority": "4"},
     "save": {
       "url": "https://sms-bcp.herokuapp.com/ixn/activities/portalweb/save/",
