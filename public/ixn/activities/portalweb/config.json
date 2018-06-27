@@ -16,7 +16,7 @@
     "execute": {
       "inArguments":[
         { "id": "{{Contact.Attribute.J1_Alerta1.Id}}"},
-        { "name": "hOLA"
+        { "name": "hOLA"}
       ],
       "outArguments": [
         { "exitoso":"boolean" }
