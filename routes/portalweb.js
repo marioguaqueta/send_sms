@@ -46,30 +46,30 @@ function sendSMSNotification(notification,res) {
 
 
 
-    var options = {
-        method: 'POST',
-        uri: endpoint,
-        body: {
-            "from":"Info-BCP2",
-            "to": notification['phone'],
-            "text": "Hola " + notification['fullname'] + ", detectamos un fraude. https://pub.s7.exacttarget.com/gek4mc4cmuh?ID="+notification['id']
-        },
-        headers: {
-            "authorization": token
-        },
-        json: true
-    };
-    console.log("Request: " + options.uri);
-    rp(options)
-        .then(function (body) {
-            console.log('BODY ' + body);
+    // var options = {
+    //     method: 'POST',
+    //     uri: endpoint,
+    //     body: {
+    //         "from":"Info-BCP2",
+    //         "to": notification['phone'],
+    //         "text": "Hola " + notification['fullname'] + ", detectamos un fraude. https://pub.s7.exacttarget.com/gek4mc4cmuh?ID="+notification['id']
+    //     },
+    //     headers: {
+    //         "authorization": token
+    //     },
+    //     json: true
+    // };
+    // console.log("Request: " + options.uri);
+    // rp(options)
+    //     .then(function (body) {
+    //         console.log('BODY ' + body);
             
             
-        })
-        .catch(function (err) {
-            console.error(err);
-            res.send(500, {message: "Internal Server Error"});
-        });
+    //     })
+    //     .catch(function (err) {
+    //         console.error(err);
+    //         res.send(500, {message: "Internal Server Error"});
+    //     });
 }
 
 
