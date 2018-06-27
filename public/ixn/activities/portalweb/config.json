@@ -17,7 +17,7 @@
       "inArguments":[
         { "id": "{{Event.APIEvent-e7552cd7-6d28-c1d8-9645-5b1c91d25712.\"Id\"}}"},
         { "name": "{{Event.APIEvent-e7552cd7-6d28-c1d8-9645-5b1c91d25712.\"Nombre\"}}"},
-        { "name": "{{Event.APIEvent-e7552cd7-6d28-c1d8-9645-5b1c91d25712.\"Telefono\"}}"}
+        { "phone": "{{Event.APIEvent-e7552cd7-6d28-c1d8-9645-5b1c91d25712.\"Telefono\"}}"}
       ],
       "outArguments": [
         { "exitoso":"boolean" }

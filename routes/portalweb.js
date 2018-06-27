@@ -40,9 +40,9 @@ function sendSMSNotification(notification,res) {
     var token = 'Basic YW1hY2xlb2Q6YmlkaXJlY2Npb25hbDIwMTg=';
     var endpoint = 'https://api.infobip.com/sms/1/text/single';
     console.log('___________________________________________________________________________');
-    console.log("Nombres: " + notification['fullname']);
+    console.log("Nombres: " + notification['name']);
     console.log("Id " + notification['id']);
-    console.log("Message " +  "Hola " + notification['fullname'] + ", detectamos un fraude. https://pub.s7.exacttarget.com/gek4mc4cmuh?ID="+notification['id']);
+    console.log("Message " +  "Hola " + notification['name'] + ", detectamos un fraude. https://pub.s7.exacttarget.com/gek4mc4cmuh?ID="+notification['id']);
 
 
 
@@ -52,7 +52,7 @@ function sendSMSNotification(notification,res) {
         body: {
             "from":"Info-BCP2",
             "to": notification['phone'],
-            "text": "Hola " + notification['fullname'] + ", detectamos un fraude. https://pub.s7.exacttarget.com/gek4mc4cmuh?ID="+notification['id']
+            "text": "Hola " + notification['name'] + ", detectamos un fraude. https://pub.s7.exacttarget.com/gek4mc4cmuh?ID="+notification['id']
         },
         headers: {
             "authorization": token
