@@ -8,17 +8,15 @@
   "type": "REST",
   "lang": {
     "en-US": {
-      "name": "Portal WEB",
-      "description": "Prueba de portal web"
+      "name": "ENVIO SMS",
+      "description": "Envio de SMS"
     }
   },
   "arguments": {
     "execute": {
       "inArguments":[
-        { "id": "{{Contact.Attribute.J1_Alerta1.Id}}"},
-        { "name": "{{Contact.Attribute.J1_Alerta1.Nombre}}"},
-        { "phone": "{{Contact.Attribute.J1_Alerta1.Telefono}}"},
-        { "text": "{{Contact.Attribute.J1_Alerta1.Mensaje}}"}
+        { "id": "{{Event.APIEvent-58fb1793-3b7e-954f-930e-196f6b34f74b.Id}}"},
+        { "name": "{{Event.APIEvent-58fb1793-3b7e-954f-930e-196f6b34f74b.Nombre}}"}
       ],
       "outArguments": [
         { "exitoso":"boolean" }
@@ -33,7 +31,7 @@
     }
   },
   "configurationArguments": {
-    "applicationExtensionKey": "4afcfa7e-b4b1-42ba-b97b-f6c2b4cc4d39",
+    "applicationExtensionKey": "e4bc0109-a511-468b-8c85-104b285cfd94",
     "defaults": { "priority": "4"},
     "save": {
       "url": "https://sms-bcp.herokuapp.com/ixn/activities/portalweb/save/",

@@ -1,7 +1,7 @@
 'use strict';
 var https = require( 'https' );
-const notificationsController = require('../server/controllers').notifications;
 var rp = require('request-promise');
+var util = require('util');
 var activityUtils = require('./activityUtils');
 
 
@@ -36,38 +36,40 @@ exports.publish = function( req, res ) {
 };
 
 
-function sendSMSNotification(req,res) {
+function sendSMSNotification(notification,res) {
     var token = 'Basic YW1hY2xlb2Q6YmlkaXJlY2Npb25hbDIwMTg=';
     var endpoint = 'https://api.infobip.com/sms/1/text/single';
+    console.log('___________________________________________________________________________');
+    console.log("Nombres: " + notification['fullname']);
+    console.log("Id " + notification['id']);
+    console.log("Message " +  "Hola " + notification['fullname'] + ", detectamos un fraude. https://pub.s7.exacttarget.com/gek4mc4cmuh?ID="+notification['id']);
 
-    var options = {
-        method: 'POST',
-        uri: endpoint,
-        body: {
-            "from":"InfoSMSEdwinRosado",
-            "to":"51981017969",
-            "text":"hola2 https://bit.ly/2si6zTt"
-        },
-        headers: {
-            "authorization": token
-        },
-        json: true
-    };
-    console.log("Request: " + options.uri);
-    rp(options)
-        .then(function (body) {
-            console.log('BODY ' + body)
-            // if (body.access_token) {
-            //     return body.access_token;
-            // }
-            // else {
-            //     res.send(500, body);
-            // }
-        })
-        .catch(function (err) {
-            console.error(err);
-            res.send(500, {message: "Internal Server Error"});
-        });
+
+
+    // var options = {
+    //     method: 'POST',
+    //     uri: endpoint,
+    //     body: {
+    //         "from":"Info-BCP2",
+    //         "to": notification['phone'],
+    //         "text": "Hola " + notification['fullname'] + ", detectamos un fraude. https://pub.s7.exacttarget.com/gek4mc4cmuh?ID="+notification['id']
+    //     },
+    //     headers: {
+    //         "authorization": token
+    //     },
+    //     json: true
+    // };
+    // console.log("Request: " + options.uri);
+    // rp(options)
+    //     .then(function (body) {
+    //         console.log('BODY ' + body);
+            
+            
+    //     })
+    //     .catch(function (err) {
+    //         console.error(err);
+    //         res.send(500, {message: "Internal Server Error"});
+    //     });
 }
 
 
@@ -90,16 +92,17 @@ exports.execute = function( req, res ) {
     // activityUtils.logData( req );
     // console.log(req.body);
 
-    // var aArgs = req.body.inArguments;
-    // var notification = {};
-    // for (var i=0; i<aArgs.length(); i++) {
-    //     console.log('');
-    //     for (var key in aArgs[i]) {
-    //         notification[key] = aArgs[i][key];
-    //     }
-    // }
-
-    console.log('Send SMS to Diego')
-    sendSMSNotification(req,res);
+    var aArgs = req.body.inArguments;
+    var notification = {};
+    console.log(req.body);
+    for (var i=0; i<aArgs.length; i++) {
+        for (var key in aArgs[i]) {
+            notification[key] = aArgs[i][key];
+            console.log("KEY: " + key);
+            console.log("Argument Value: " + aArgs[i][key]);
+        }
+    }
+    console.log("PRUEBA NOMBRES");
+    sendSMSNotification(notification,res);
     res.send( 201, {"exitoso":true});
 };
